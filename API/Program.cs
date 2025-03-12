@@ -11,6 +11,11 @@ builder.Services.AddDbContext<DataContext>(options=>{
     options.UseSqlite(builder.Configuration["ConnectionStrings:sql_connection"]);
 });
 
+
+builder.Services.AddCors();
+
+
+
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
@@ -47,6 +52,11 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+app.UseCors(opt=>{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
+
 app.UseAuthorization();
 app.MapControllers(); 
 app.Run();

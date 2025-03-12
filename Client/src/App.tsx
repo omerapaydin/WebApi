@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const products = [
+  { id: 1, name: "product 1", price: 1000, isActive: true },
+  { id: 2, name: "product 2", price: 2000, isActive: true },
+  { id: 3, name: "product 3", price: 3000, isActive: true },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <ProductList />
     </>
-  )
+  );
 }
 
-export default App
+function Header() {
+  return <h1>Header</h1>;
+}
+function ProductList() {
+  return (
+    <>
+      <h2>ProductList</h2>
+      {products.map((p) => (
+        <Product key={p.id} product={p} />
+      ))}
+    </>
+  );
+}
+function Product(props: any) {
+  return (
+    <>
+      {props.product.isActive && (
+        <>
+          <h3>{props.product.name}</h3>
+          <p>{props.product.price}</p>
+        </>
+      )}
+    </>
+  );
+}
+
+export default App;

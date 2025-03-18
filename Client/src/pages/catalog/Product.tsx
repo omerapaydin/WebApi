@@ -1,4 +1,4 @@
-import { IProduct } from "../model/IProduct";
+import { IProduct } from "../../../model/IProduct";
 import {
   Button,
   Card,

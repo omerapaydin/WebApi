@@ -1,10 +1,63 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { ShoppingCart } from "@mui/icons-material";
+import {
+  AppBar,
+  Badge,
+  Box,
+  IconButton,
+  List,
+  ListItem,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import { NavLink } from "react-router-dom";
+
+const links = [
+  { title: "Home", to: "/" },
+  { title: "Catalog", to: "/catalog" },
+  { title: "About", to: "/about" },
+  { title: "Contact", to: "/contact" },
+];
+
+const navStyles = {
+  color: "inherit",
+  textDecoration: "none",
+  "&:hover": {
+    color: "text.primary",
+  },
+  "&.active": {
+    color: "warning.main",
+  },
+};
 
 export default function Header() {
   return (
     <AppBar position="static" sx={{ mb: 4 }}>
-      <Toolbar>
-        <Typography variant="h6">E-comment</Typography>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Typography variant="h6" sx={{ mr: 2 }}>
+            E-comment
+          </Typography>
+          <List sx={{ display: "flex" }}>
+            {links.map((link) => (
+              <ListItem
+                key={link.to}
+                component={NavLink}
+                sx={navStyles}
+                to={link.to}
+              >
+                {link.title}
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        <Box>
+          <IconButton size="large" edge="start" color="inherit">
+            <Badge badgeContent={2} color="secondary">
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );

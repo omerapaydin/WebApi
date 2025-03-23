@@ -25,7 +25,7 @@ namespace API.Controllers
         [HttpGet("unauthorized")]
         public IActionResult UnAuthorizedError()
         {
-            return BadRequest(); //401
+            return Unauthorized(); //401
         }
 
         [HttpGet("validation-error")]

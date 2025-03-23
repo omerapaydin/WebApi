@@ -3,9 +3,9 @@ import {
   AppBar,
   Badge,
   Box,
+  Button,
   IconButton,
-  List,
-  ListItem,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -37,18 +37,18 @@ export default function Header() {
           <Typography variant="h6" sx={{ mr: 2 }}>
             E-comment
           </Typography>
-          <List sx={{ display: "flex" }}>
+          <Stack direction="row">
             {links.map((link) => (
-              <ListItem
+              <Button
                 key={link.to}
                 component={NavLink}
                 sx={navStyles}
                 to={link.to}
               >
                 {link.title}
-              </ListItem>
+              </Button>
             ))}
-          </List>
+          </Stack>
         </Box>
 
         <Box>

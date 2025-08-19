@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "8Nm3XUr8oxI=",
+  "success": false,
+  "projectFilePath": "/Users/omerapaydin/Desktop/API/WebApi/Api/Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/omerapaydin/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0/microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/microsoft.extensions.apidescription.server/9.0.0/microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/microsoft.openapi/1.6.22/microsoft.openapi.1.6.22.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/swashbuckle.aspnetcore/9.0.3/swashbuckle.aspnetcore.9.0.3.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/swashbuckle.aspnetcore.swagger/7.3.1/swashbuckle.aspnetcore.swagger.7.3.1.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/swashbuckle.aspnetcore.swaggergen/9.0.3/swashbuckle.aspnetcore.swaggergen.9.0.3.nupkg.sha512",
+    "/Users/omerapaydin/.nuget/packages/swashbuckle.aspnetcore.swaggerui/9.0.3/swashbuckle.aspnetcore.swaggerui.9.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore.Swagger from 9.0.3 to 7.3.1. Reference the package directly from the project to select a different version. \n Api -> Swashbuckle.AspNetCore 9.0.3 -> Swashbuckle.AspNetCore.Swagger (>= 9.0.3) \n Api -> Swashbuckle.AspNetCore.Swagger (>= 7.3.1)",
+      "libraryId": "Swashbuckle.AspNetCore.Swagger",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

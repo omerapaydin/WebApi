@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Controllers
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+builder.Services.AddCors();
 
 // Swagger (klasik, controller uyumlu)
 builder.Services.AddEndpointsApiExplorer();
@@ -18,7 +19,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 var app = builder.Build();
 
-
+app.UseCors(opt=>{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 
 
 app.UseHttpsRedirection();

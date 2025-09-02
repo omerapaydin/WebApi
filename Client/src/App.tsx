@@ -19,6 +19,10 @@ function ProductList() {
     { id: 3, name: "Product 3", price: 3000, isActive: true },
   ]);
 
+  fetch("http://localhost:5239/api/products")
+    .then((response) => response.json())
+    .then((data) => setProducts(data));
+
   function addProduct() {
     setProducts([
       ...products,

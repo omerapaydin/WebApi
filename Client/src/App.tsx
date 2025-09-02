@@ -22,7 +22,7 @@ function ProductList() {
   function addProduct() {
     setProducts([
       ...products,
-      { id: 4, name: "Product 4", price: 4000, isActive: true },
+      { id: Date.now(), name: "Product 4", price: 4000, isActive: true },
     ]);
   }
 

@@ -17,6 +17,7 @@ namespace Api.Controllers
         {
             _context = context;
         }
+        [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
             return Ok(await _context.Products.ToListAsync());

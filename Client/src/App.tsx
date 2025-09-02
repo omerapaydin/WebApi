@@ -1,8 +1,4 @@
-const products = [
-  { id: 1, name: "Product 1", price: 1000 },
-  { id: 2, name: "Product 2", price: 2000 },
-  { id: 3, name: "Product 3", price: 3000 },
-];
+import { useState } from "react";
 
 function App() {
   return (
@@ -17,19 +13,42 @@ function Header() {
 }
 
 function ProductList() {
+  const [products, setProducts] = useState([
+    { id: 1, name: "Product 1", price: 1000, isActive: true },
+    { id: 2, name: "Product 2", price: 2000, isActive: false },
+    { id: 3, name: "Product 3", price: 3000, isActive: true },
+  ]);
+
+  function addProduct() {
+    setProducts([
+      ...products,
+      { id: 4, name: "Product 4", price: 4000, isActive: true },
+    ]);
+  }
+
   return (
     <>
       <h1>Product List</h1>
-      <Product product={products[0]} />
-      <Product product={products[1]} />
-      <Product product={products[2]} />
+      {products.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+
+      <button onClick={addProduct}>AddProduct</button>
     </>
   );
 }
+
 function Product(props: any) {
   return (
     <div>
-      <h3> {props.product.name} </h3>- <p> {props.product.price}</p>
+      {props.product.isActive ? (
+        <div>
+          <h3> {props.product.name} </h3>
+          <p> {props.product.price}</p>
+        </div>
+      ) : (
+        <p>ürün satışta değil</p>
+      )}
     </div>
   );
 }

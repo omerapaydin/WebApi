@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IProduct } from "../Model/IProduct";
 import Header from "./Header";
+import ProductList from "./ProductList";
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -26,31 +27,4 @@ function App() {
   );
 }
 
-function ProductList(props: any) {
-  return (
-    <>
-      <h1>Product List</h1>
-      {props.products.map((p: IProduct) => (
-        <Product key={p.id} product={p} />
-      ))}
-
-      <button onClick={props.addProduct}>AddProduct</button>
-    </>
-  );
-}
-
-function Product(props: any) {
-  return (
-    <div>
-      {props.product.isActive ? (
-        <div>
-          <h3> {props.product.name} </h3>
-          <p> {props.product.price}</p>
-        </div>
-      ) : (
-        <p>ürün satışta değil</p>
-      )}
-    </div>
-  );
-}
 export default App;

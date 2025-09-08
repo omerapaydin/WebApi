@@ -1,15 +1,20 @@
 import { IProduct } from "../Model/IProduct";
 import Product from "./Product";
 
-export default function ProductList(props: any) {
+interface Props {
+  products: IProduct[];
+  addProduct: () => void;
+}
+
+export default function ProductList({ products, addProduct }: Props) {
   return (
     <>
       <h1>Product List</h1>
-      {props.products.map((p: IProduct) => (
+      {products.map((p: IProduct) => (
         <Product key={p.id} product={p} />
       ))}
 
-      <button onClick={props.addProduct}>AddProduct</button>
+      <button onClick={addProduct}>AddProduct</button>
     </>
   );
 }

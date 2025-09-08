@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IProduct } from "./Model/IProduct";
 
 function App() {
   return (
@@ -13,11 +14,7 @@ function Header() {
 }
 
 function ProductList() {
-  const [products, setProducts] = useState([
-    { id: 1, name: "Product 1", price: 1000, isActive: true },
-    { id: 2, name: "Product 2", price: 2000, isActive: true },
-    { id: 3, name: "Product 3", price: 3000, isActive: true },
-  ]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:5239/api/Products")

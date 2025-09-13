@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IProduct } from "../Model/IProduct";
 import Header from "./Header";
 import ProductList from "./ProductList";
+import ButtonUsage from "./ButtonUsage";
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -23,6 +24,7 @@ function App() {
     <>
       <Header products={products} />
       <ProductList products={products} addProduct={addProduct} />
+      <ButtonUsage />
     </>
   );
 }

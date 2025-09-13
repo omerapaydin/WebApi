@@ -1,7 +1,7 @@
 import {
   CircularProgress,
   Divider,
-  Grid2,
+  Grid,
   Table,
   TableBody,
   TableCell,
@@ -33,14 +33,14 @@ export default function ProductDetailsPage() {
   if (!product) return <h5>Product not found...</h5>;
 
   return (
-    <Grid2 container spacing={6}>
-      <Grid2 size={{ xl: 3, lg: 4, md: 5, sm: 6, xs: 12 }}>
+    <Grid container spacing={6}>
+      <Grid size={{ xl: 3, lg: 4, md: 5, sm: 6, xs: 12 }}>
         <img
           src={`http://localhost:5291/images/${product.imageUrl}`}
           style={{ width: "100%" }}
         />
-      </Grid2>
-      <Grid2 size={{ xl: 9, lg: 8, md: 7, sm: 6, xs: 12 }}>
+      </Grid>
+      <Grid size={{ xl: 9, lg: 8, md: 7, sm: 6, xs: 12 }}>
         <Typography variant="h3">{product.name}</Typography>
         <Divider sx={{ mb: 2 }} />
         <Typography variant="h4" color="secondary">
@@ -64,7 +64,7 @@ export default function ProductDetailsPage() {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 }

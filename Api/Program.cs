@@ -1,4 +1,5 @@
 using Api.Data;
+using Api.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,7 @@ var app = builder.Build();
 app.UseCors(opt=>{
     opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
 });
-
+app.UseMiddleware<ExeptionHandling>();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
